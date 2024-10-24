@@ -137,6 +137,16 @@ public class MainInterfaz extends JPanel {
                 }
             } 
         });
+        btnPerfil.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrame frame = new JFrame ("interfazActualizarInformación");
+                frame.setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
+                frame.getContentPane().add (new InterfazActualizarInformación());
+                frame.pack();
+                frame.setVisible (true);
+            }
+        });
     }
 
     public void buscarReunion() {

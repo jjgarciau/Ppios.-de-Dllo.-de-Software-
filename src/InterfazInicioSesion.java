@@ -49,6 +49,11 @@ public class InterfazInicioSesion extends JPanel {
                 // Lógica para iniciar sesión 
                 if ((usuario.equals(estudiante.getCorreoInstitucional())||usuario.equals(String.valueOf(estudiante.getIdEpik())))&& contraseña.equals(estudiante.getContraseña())) {
                     JOptionPane.showMessageDialog(null, "Inicio de sesión exitoso");
+                    JFrame frame = new JFrame ("interfazCrearCuenta");
+                frame.setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
+                frame.getContentPane().add (new MainInterfaz());
+                frame.pack();
+                frame.setVisible (true);
                 } else {
                     JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos");
                 }
