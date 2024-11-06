@@ -1,17 +1,18 @@
 public class Estudiante {
-    public String nombres;
-    public String apellidos;
-    public String correoInstitucional;
-    public int idEpik;
-    public String contraseña;
-    public String rol;
+    private String nombres;
+    private String apellidos;
+    private String correoInstitucional;
+    private int idEpik;
+    private String contraseña;
+    private String tipoUsuario;
     
-    public Estudiante(String nombres, String apellidos, String correoInstitucional, int idEpik, String contraseña) {
+    public Estudiante(String nombres, String apellidos, String correoInstitucional, int idEpik, String contraseña, String tipoUsuario) {
         this.nombres = nombres;
         this.apellidos = apellidos;
         this.correoInstitucional = correoInstitucional;
         this.idEpik = idEpik;
         this.contraseña = contraseña;
+        this.tipoUsuario = tipoUsuario;
     }
     //Getters
     public int getIdEpik(){

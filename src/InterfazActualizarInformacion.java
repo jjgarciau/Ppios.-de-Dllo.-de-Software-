@@ -6,76 +6,76 @@ import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.event.*;
 
-public class InterfazActualizarInformación extends JPanel {
-    private JButton jcomp1;
+public class InterfazActualizarInformacion extends JPanel {
+    private JButton btnActualizarInformacion;
     private JTextField nombreMostrar;
     private JTextField apellidosMostrar;
     private JTextField idEpikMostrar;
     private JTextField correoInstitucionalMostrar;
-    private JLabel jcomp6;
-    private JLabel jcomp7;
-    private JLabel jcomp8;
-    private JLabel jcomp9;
-    private JLabel jcomp10;
+    private JLabel txtNombres;
+    private JLabel txtApellidos;
+    private JLabel txtIdEpik;
+    private JLabel txtCorreoInstitucional;
+    private JLabel txtInformacionPersonal;
     private JLabel rolActualizar;
-    private JComboBox jcomp12;
+    private JComboBox selectorRol;
 
-    public InterfazActualizarInformación() {
+    public InterfazActualizarInformacion() {
         //construct preComponents
-        String[] jcomp12Items = {"Estudiante", "Monitor", "Administrador"};
+        String[] selectorRolItems = {"Estudiante", "Monitor", "Administrador"};
 
         //construct components
-        jcomp1 = new JButton ("Actualizar información");
+        btnActualizarInformacion = new JButton ("Actualizar información");
         nombreMostrar = new JTextField (5);
         apellidosMostrar = new JTextField (5);
         idEpikMostrar = new JTextField (5);
         correoInstitucionalMostrar = new JTextField (5);
-        jcomp6 = new JLabel ("Nombres");
-        jcomp7 = new JLabel ("Apellidos");
-        jcomp8 = new JLabel ("Id de Epik");
-        jcomp9 = new JLabel ("Correo Institucional");
-        jcomp10 = new JLabel ("Información personal");
+        txtNombres = new JLabel ("Nombres");
+        txtApellidos = new JLabel ("Apellidos");
+        txtIdEpik = new JLabel ("Id de Epik");
+        txtCorreoInstitucional = new JLabel ("Correo Institucional");
+        txtInformacionPersonal = new JLabel ("Información personal");
         rolActualizar = new JLabel ("Rol");
-        jcomp12 = new JComboBox (jcomp12Items);
+        selectorRol = new JComboBox (selectorRolItems);
 
         //adjust size and set layout
         setPreferredSize (new Dimension (946, 571));
         setLayout (null);
 
         //add components
-        add (jcomp1);
+        add (btnActualizarInformacion);
         add (nombreMostrar);
         add (apellidosMostrar);
         add (idEpikMostrar);
         add (correoInstitucionalMostrar);
-        add (jcomp6);
-        add (jcomp7);
-        add (jcomp8);
-        add (jcomp9);
-        add (jcomp10);
+        add (txtNombres);
+        add (txtApellidos);
+        add (txtIdEpik);
+        add (txtCorreoInstitucional);
+        add (txtInformacionPersonal);
         add (rolActualizar);
-        add (jcomp12);
+        add (selectorRol);
 
         //set component bounds (only needed by Absolute Positioning)
-        jcomp1.setBounds (275, 445, 340, 40);
+        btnActualizarInformacion.setBounds (275, 445, 340, 40);
         nombreMostrar.setBounds (160, 85, 200, 30);
         apellidosMostrar.setBounds (160, 130, 200, 30);
         idEpikMostrar.setBounds (160, 175, 200, 30);
         correoInstitucionalMostrar.setBounds (160, 220, 200, 30);
-        jcomp6.setBounds (60, 90, 115, 25);
-        jcomp7.setBounds (60, 130, 100, 25);
-        jcomp8.setBounds (55, 175, 100, 25);
-        jcomp9.setBounds (40, 220, 120, 25);
-        jcomp10.setBounds (45, 25, 130, 25);
+        txtNombres.setBounds (60, 90, 115, 25);
+        txtApellidos.setBounds (60, 130, 100, 25);
+        txtIdEpik.setBounds (55, 175, 100, 25);
+        txtCorreoInstitucional.setBounds (40, 220, 120, 25);
+        txtInformacionPersonal.setBounds (45, 25, 130, 25);
         rolActualizar.setBounds (655, 40, 100, 25);
-        jcomp12.setBounds (655, 65, 100, 25);
+        selectorRol.setBounds (655, 65, 100, 25);
     }
 
 
     public static void main (String[] args) {
         JFrame frame = new JFrame ("InterfazActualizarInformación");
         frame.setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
-        frame.getContentPane().add (new InterfazActualizarInformación());
+        frame.getContentPane().add (new InterfazActualizarInformacion());
         frame.pack();
         frame.setVisible (true);
     }

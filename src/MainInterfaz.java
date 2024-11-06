@@ -4,7 +4,7 @@
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-import javax.swing.event.*;
+//import javax.swing.event.*;
 
 public class MainInterfaz extends JPanel {
     private JButton btnSalirReunion;
@@ -17,14 +17,14 @@ public class MainInterfaz extends JPanel {
     private JTextField cuadroTxtBuscarReunion;
     private JButton btnInscribirReunion;
     private JButton btnCrearReunion;
-    private JTextField jcomp11;
-    private JTextField jcomp12;
+    private JTextField cuadroTxtFechaReunion;
+    private JTextField cuadroTxtLugarReunion;
     private JLabel txtFechaReunion;
     private JLabel txtNuevaReunion;
     private JLabel txtLugarReunion;
     private JList listMisReunion;
     private JButton btnEditarReunion;
-    private JTextField jcomp18;
+    private JTextField cuadroTxtMaxEstudiantes;
     private JLabel txtMaxEstudiantes;
     private JButton btnGuardarReunion;
     private JButton btnEliminarReunion;
@@ -46,14 +46,14 @@ public class MainInterfaz extends JPanel {
         cuadroTxtBuscarReunion = new JTextField (5);
         btnInscribirReunion = new JButton ("Inscribirse a reunión");
         btnCrearReunion = new JButton ("Crear reunión");
-        jcomp11 = new JTextField (5);
-        jcomp12 = new JTextField (5);
+        cuadroTxtFechaReunion = new JTextField (5);
+        cuadroTxtLugarReunion = new JTextField (5);
         txtFechaReunion = new JLabel ("Fecha de la reunión");
         txtNuevaReunion = new JLabel ("Nueva Reunión");
         txtLugarReunion = new JLabel ("Lugar de la reunión");
         listMisReunion = new JList (listMisReunionItems);
         btnEditarReunion = new JButton ("Editar reunión");
-        jcomp18 = new JTextField (5);
+        cuadroTxtMaxEstudiantes = new JTextField (5);
         txtMaxEstudiantes = new JLabel ("Max Estudiantes");
         btnGuardarReunion = new JButton ("Guardar reunión");
         btnEliminarReunion = new JButton ("Eliminar reunión");
@@ -76,14 +76,14 @@ public class MainInterfaz extends JPanel {
         add (cuadroTxtBuscarReunion);
         add (btnInscribirReunion);
         add (btnCrearReunion);
-        add (jcomp11);
-        add (jcomp12);
+        add (cuadroTxtFechaReunion);
+        add (cuadroTxtLugarReunion);
         add (txtFechaReunion);
         add (txtNuevaReunion);
         add (txtLugarReunion);
         add (listMisReunion);
         add (btnEditarReunion);
-        add (jcomp18);
+        add (cuadroTxtMaxEstudiantes);
         add (txtMaxEstudiantes);
         add (btnGuardarReunion);
         add (btnEliminarReunion);
@@ -99,14 +99,14 @@ public class MainInterfaz extends JPanel {
         cuadroTxtBuscarReunion.setBounds (90, 135, 300, 30);
         btnInscribirReunion.setBounds (90, 445, 300, 25);
         btnCrearReunion.setBounds (740, 295, 115, 25);
-        jcomp11.setBounds (585, 255, 130, 30);
-        jcomp12.setBounds (725, 255, 130, 30);
+        cuadroTxtFechaReunion.setBounds (585, 255, 130, 30);
+        cuadroTxtLugarReunion.setBounds (725, 255, 130, 30);
         txtFechaReunion.setBounds (590, 230, 115, 25);
         txtNuevaReunion.setBounds (590, 195, 90, 30);
         txtLugarReunion.setBounds (725, 230, 115, 25);
         listMisReunion.setBounds (585, 335, 270, 65);
         btnEditarReunion.setBounds (585, 415, 270, 25);
-        jcomp18.setBounds (690, 295, 45, 25);
+        cuadroTxtMaxEstudiantes.setBounds (690, 295, 45, 25);
         txtMaxEstudiantes.setBounds (585, 295, 100, 25);
         btnGuardarReunion.setBounds (585, 475, 270, 25);
         btnEliminarReunion.setBounds (585, 445, 270, 25);
@@ -142,7 +142,7 @@ public class MainInterfaz extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 JFrame frame = new JFrame ("interfazActualizarInformación");
                 frame.setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
-                frame.getContentPane().add (new InterfazActualizarInformación());
+                frame.getContentPane().add (new InterfazActualizarInformacion());
                 frame.pack();
                 frame.setVisible (true);
             }

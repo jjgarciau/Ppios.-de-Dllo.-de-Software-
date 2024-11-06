@@ -4,7 +4,7 @@
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-import javax.swing.event.*;
+//import javax.swing.event.*;
 
 public class InterfazCrearCuenta extends JPanel {
     private JButton btnCrearCuenta;
@@ -70,14 +70,49 @@ public class InterfazCrearCuenta extends JPanel {
         txtCorreoInstitucional.setBounds (545, 170, 120, 25);
         txtContraseña.setBounds (170, 270, 100, 25);
         txtConfirmarContraseña.setBounds (545, 270, 150, 25);
-    }
 
 
-    public static void main (String[] args) {
-        JFrame frame = new JFrame ("InterfazCrearCuenta");
-        frame.setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
-        frame.getContentPane().add (new InterfazCrearCuenta());
-        frame.pack();
-        frame.setVisible (true);
+        //Evento crear cuenta
+        btnCrearCuenta.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //Tomar texto de los cuadros de texto
+                String nombresNuevo = cuadroTxtNombresNuevo.getText();
+                String apellidosNuevo = cuadroTxtApellidosNuevo.getText();
+                String correoNuevo = cuadroTxtCorreoInstitucionalNuevo.getText();
+                String idEpikNuevo = cuadroTxtIdEpikNuevo.getText();
+                String contrasenaNuevo = new String(pssNuevaContraseña.getPassword());
+                String contrasenaConfirmarNuevo = new String(pssNuevaContraseña2.getPassword());
+                int idEpikNuevoInt = Integer.parseInt(idEpikNuevo);
+                if ((!nombresNuevo.equals(""))&&(!apellidosNuevo.equals(""))&&(!correoNuevo.equals(""))&&(!idEpikNuevo.equals(""))&&(!contrasenaNuevo.equals(""))&&(contrasenaNuevo.equals(contrasenaConfirmarNuevo))){
+                    
+                    //Crear estudiante
+                    Estudiante nuevoEstudiante = new Estudiante(nombresNuevo, apellidosNuevo, correoNuevo, idEpikNuevoInt, contrasenaNuevo, "Estudiante");
+
+                    //Abrir ventana de inicio de sesion
+                    JFrame interfazIS = new JFrame ("interfazInicioSesion");
+                    //frame.setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
+                    interfazIS.getContentPane().add (new InterfazInicioSesion());
+                    interfazIS.pack();
+                    interfazIS.setVisible (true);
+                    ((Window) getRootPane().getParent()).dispose();
+                }else{
+                    JOptionPane.showMessageDialog(null, "Información faltante o erroenea");
+                }
+
+                
+            } 
+        });
     }
+
+    
+
+
+    /* public static void main (String[] args) {
+        JFrame interfazCC = new JFrame ("InterfazCrearCuenta");
+        interfazCC.setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
+        interfazCC.getContentPane().add (new InterfazCrearCuenta());
+        interfazCC.pack();
+        interfazCC.setVisible (true);
+    } */
 }

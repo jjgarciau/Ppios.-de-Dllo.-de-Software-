@@ -19,7 +19,7 @@ public class InterfazInicioSesion extends JPanel {
         ingresoContraseña = new JPasswordField (5);
 
         //Prueba Usuario
-        Estudiante estudiante = new Estudiante("Juan", "Perez", "prueba@eafit.edu.co", 1000264476, "admin");
+        Estudiante estudiante = new Estudiante("Juan", "Perez", "prueba@eafit.edu.co", 1000264476, "admin", "Estudiante") ;
         //Fin prueba usuario
 
         //adjust size and set layout
@@ -60,24 +60,21 @@ public class InterfazInicioSesion extends JPanel {
             } 
         });
 
-        //Evento crear cuenta
+        //Evento pulsar boton de crear cuenta
         btnCrearCuenta.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JFrame frame = new JFrame ("interfazCrearCuenta");
-                frame.setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
-                frame.getContentPane().add (new InterfazCrearCuenta());
-                frame.pack();
-                frame.setVisible (true);
+                JFrame interfazCC = new JFrame ("interfazCrearCuenta");
+                //frame.setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
+                interfazCC.getContentPane().add (new InterfazCrearCuenta());
+                interfazCC.pack();
+                interfazCC.setVisible (true);
+                ((Window) getRootPane().getParent()).dispose();
             } 
         });
-
-
     }
-
-
-    public static void main (String[] args) {
-        JFrame frame = new JFrame ("interfazInicioSesion");
+    public static void main(String[] args) {
+        JFrame frame = new JFrame ("InterfazInicioSesion");
         frame.setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
         frame.getContentPane().add (new InterfazInicioSesion());
         frame.pack();

@@ -1,7 +1,11 @@
-public class Main {
-    public static void main(String[] args) {
-        Estudiante estudiante = new Estudiante("Juan Esteban", "Jiménez Cardona", "jejimenez@eafit.edu.co", 1000264476, "1234");
-       
+import javax.swing.JFrame;
 
+public class Main{
+    public static void main(String[] args) {
+        JFrame frame = new JFrame ("InterfazInicioSesion");
+        frame.setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
+        frame.getContentPane().add (new InterfazInicioSesion());
+        frame.pack();
+        frame.setVisible (true);
     }
 }
