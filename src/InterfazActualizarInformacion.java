@@ -25,10 +25,11 @@ public class InterfazActualizarInformacion extends JPanel {
     private JLabel rolActualizar;
     private JComboBox selectorRol;
 
-    public InterfazActualizarInformacion() {
+    public InterfazActualizarInformacion(Estudiante usuarioActual) {
+        this.usuarioActual = usuarioActual;
+        
         //construct preComponents
         String[] selectorRolItems = {"Estudiante", "Monitor", "Administrador"};
-        usuarioActual = new Estudiante("Juan", "Perez", "prueba", 1000264476, "admin" ,"estudiante");
         //construct components
         btnAtrasAC = new JButton ("Atras");
         btnActualizarInformacion = new JButton ("Actualizar información");
@@ -49,7 +50,7 @@ public class InterfazActualizarInformacion extends JPanel {
         selectorRol = new JComboBox (selectorRolItems);
 
         //adjust size and set layout
-        setPreferredSize (new Dimension (946, 571));
+        setPreferredSize (new Dimension (1920, 1080));
         setLayout (null);
 
         //add components
@@ -94,7 +95,7 @@ public class InterfazActualizarInformacion extends JPanel {
             public void actionPerformed(ActionEvent e){
                 JFrame interfazMI = new JFrame ("interfazMain");
                 //frame.setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
-                interfazMI.getContentPane().add (new MainInterfaz());
+                interfazMI.getContentPane().add (new MainInterfaz(usuarioActual));
                 interfazMI.pack();
                 interfazMI.setVisible (true);
                 ((Window) getRootPane().getParent()).dispose();
@@ -104,9 +105,9 @@ public class InterfazActualizarInformacion extends JPanel {
 
 
     public static void main (String[] args) {
-        JFrame frame = new JFrame ("InterfazActualizarInformación");
-        frame.setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
-        frame.getContentPane().add (new InterfazActualizarInformacion());
+        JFrame frame = new JFrame ("Inicio de sesión");
+        frame.setDefaultCloseOperation (JFrame.DISPOSE_ON_CLOSE);
+        frame.getContentPane().add (new InterfazInicioSesion());
         frame.pack();
         frame.setVisible (true);
     }

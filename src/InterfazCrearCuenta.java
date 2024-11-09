@@ -41,7 +41,7 @@ public class InterfazCrearCuenta extends JPanel {
         txtConfirmarContraseña = new JLabel ("Confirmación contraseña");
 
         //adjust size and set layout
-        setPreferredSize (new Dimension (946, 571));
+        setPreferredSize (new Dimension (1920, 1080));
         setLayout (null);
 
         //add components
@@ -96,7 +96,7 @@ public class InterfazCrearCuenta extends JPanel {
                     Estudiante nuevoEstudiante = new Estudiante(nombresNuevo, apellidosNuevo, correoNuevo, idEpikNuevoInt, contrasenaNuevo, "Estudiante");
 
                     //Abrir ventana de inicio de sesion
-                    JFrame interfazIS = new JFrame ("interfazInicioSesion");
+                    JFrame interfazIS = new JFrame ("Inicio de sesión");
                     //frame.setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
                     interfazIS.getContentPane().add (new InterfazInicioSesion());
                     interfazIS.pack();
@@ -117,7 +117,7 @@ public class InterfazCrearCuenta extends JPanel {
         //Boton atras
         btnAtrasCC.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
-                JFrame interfazIS = new JFrame ("interfazInicioSesion");
+                JFrame interfazIS = new JFrame ("Inicio de sesión");
                 //frame.setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
                 interfazIS.getContentPane().add (new InterfazInicioSesion());
                 interfazIS.pack();
@@ -131,7 +131,7 @@ public class InterfazCrearCuenta extends JPanel {
 
 
     public static void main (String[] args) {
-        JFrame frame = new JFrame ("InterfazInicioSesion");
+        JFrame frame = new JFrame ("Inicio de sesión");
         frame.setDefaultCloseOperation (JFrame.DISPOSE_ON_CLOSE);
         frame.getContentPane().add (new InterfazInicioSesion());
         frame.pack();

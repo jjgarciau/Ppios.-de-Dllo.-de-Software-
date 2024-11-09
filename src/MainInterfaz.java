@@ -32,7 +32,8 @@ public class MainInterfaz extends JPanel {
     private JButton btnGuardarReunion;
     private JButton btnEliminarReunion;
 
-    public MainInterfaz() {
+    public MainInterfaz(Estudiante usuarioActual) {
+        this.usuarioActual = usuarioActual;
         //construct preComponents
         String[] listReunionInscritasItems = {"Reunión 1", "Reunión 2", "Reunión 3", "Reunión 4"};
         String[] listReunionDisponibleItems = {"Reunión dispo 1  (Monitor/Materia,Fecha/hora, Lugar)	", "Reunión dispo 2  (Monitor/Materia,Fecha/hora, Lugar)	", "Reunión dispo 3  (Monitor/Materia,Fecha/hora, Lugar)	", "Reunión dispo 4  (Monitor/Materia,Fecha/hora, Lugar)", "Reunión dispo 5  (Monitor/Materia,Fecha/hora, Lugar)	", "Reunión dispo 6  (Monitor/Materia,Fecha/hora, Lugar)", "Reunión dispo 7  (Monitor/Materia,Fecha/hora, Lugar)", "..."};
@@ -65,12 +66,13 @@ public class MainInterfaz extends JPanel {
         cuadroTxtBuscarReunion.setToolTipText ("Buscar reunión");
 
         //adjust size and set layout
-        setPreferredSize (new Dimension (946, 571));
+        setPreferredSize (new Dimension (1920, 1080));
         setLayout (null);
 
         //Prueba Usuario
         //Estudiante estudiante = new Estudiante("Juan", "Perez", "prueba@eafit.edu.co", 1000264476, "admin", "Estudiante");
-        Monitor estudiante = new Monitor("Juan", "Perez", "correo", 1000264476, "admin", "Monitor", "Matematicas");
+        //Monitor estudiante = new Monitor("Juan", "Perez", "correo", 1000264476, "admin", "Monitor", "Matematicas");
+        Estudiante estudiante = usuarioActual;
 
 
         //Verificar si el usuario es un monitor para mostrar las opciones de crear reunión
@@ -261,7 +263,7 @@ public class MainInterfaz extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 JFrame frame = new JFrame ("interfazActualizarInformación");
                 frame.setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
-                frame.getContentPane().add (new InterfazActualizarInformacion());
+                frame.getContentPane().add (new InterfazActualizarInformacion(usuarioActual));
                 frame.pack();
                 frame.setVisible (true);
                 ((Window) getRootPane().getParent()).dispose();
@@ -313,9 +315,9 @@ public class MainInterfaz extends JPanel {
 
 
     public static void main (String[] args) {
-        JFrame frame = new JFrame ("MainInterfaz");
-        frame.setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
-        frame.getContentPane().add (new MainInterfaz());
+        JFrame frame = new JFrame ("Inicio de sesión");
+        frame.setDefaultCloseOperation (JFrame.DISPOSE_ON_CLOSE);
+        frame.getContentPane().add (new InterfazInicioSesion());
         frame.pack();
         frame.setVisible (true);
     }
