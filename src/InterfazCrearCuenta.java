@@ -7,6 +7,8 @@ import javax.swing.*;
 //import javax.swing.event.*;
 
 public class InterfazCrearCuenta extends JPanel {
+    private Estudiante usuarioActual;
+    private  JButton btnAtrasCC;
     private JButton btnCrearCuenta;
     private JPasswordField pssNuevaContraseña;
     private JPasswordField pssNuevaContraseña2;
@@ -23,6 +25,7 @@ public class InterfazCrearCuenta extends JPanel {
 
     public InterfazCrearCuenta() {
         //construct components
+        btnAtrasCC = new JButton ("Atras");
         btnCrearCuenta = new JButton ("Crear cuenta");
         pssNuevaContraseña = new JPasswordField (5);
         pssNuevaContraseña2 = new JPasswordField (5);
@@ -42,6 +45,7 @@ public class InterfazCrearCuenta extends JPanel {
         setLayout (null);
 
         //add components
+        add(btnAtrasCC);
         add (btnCrearCuenta);
         add (pssNuevaContraseña);
         add (pssNuevaContraseña2);
@@ -57,6 +61,7 @@ public class InterfazCrearCuenta extends JPanel {
         add (txtConfirmarContraseña);
 
         //set component bounds (only needed by Absolute Positioning)
+        btnAtrasCC.setBounds (10, 10, 75, 25);
         btnCrearCuenta.setBounds (275, 445, 340, 40);
         pssNuevaContraseña.setBounds (170, 300, 200, 30);
         pssNuevaContraseña2.setBounds (545, 300, 200, 30);
@@ -83,8 +88,9 @@ public class InterfazCrearCuenta extends JPanel {
                 String idEpikNuevo = cuadroTxtIdEpikNuevo.getText();
                 String contrasenaNuevo = new String(pssNuevaContraseña.getPassword());
                 String contrasenaConfirmarNuevo = new String(pssNuevaContraseña2.getPassword());
-                int idEpikNuevoInt = Integer.parseInt(idEpikNuevo);
-                if ((!nombresNuevo.equals(""))&&(!apellidosNuevo.equals(""))&&(!correoNuevo.equals(""))&&(!idEpikNuevo.equals(""))&&(!contrasenaNuevo.equals(""))&&(contrasenaNuevo.equals(contrasenaConfirmarNuevo))){
+                if(!idEpikNuevo.equals("")){
+                    int idEpikNuevoInt = Integer.parseInt(idEpikNuevo);
+                    if ((!nombresNuevo.equals(""))&&(!apellidosNuevo.equals(""))&&(!correoNuevo.equals(""))&&(!idEpikNuevo.equals(""))&&(!contrasenaNuevo.equals(""))&&(contrasenaNuevo.equals(contrasenaConfirmarNuevo))){
                     
                     //Crear estudiante
                     Estudiante nuevoEstudiante = new Estudiante(nombresNuevo, apellidosNuevo, correoNuevo, idEpikNuevoInt, contrasenaNuevo, "Estudiante");
@@ -96,23 +102,39 @@ public class InterfazCrearCuenta extends JPanel {
                     interfazIS.pack();
                     interfazIS.setVisible (true);
                     ((Window) getRootPane().getParent()).dispose();
+                    }else{
+                    JOptionPane.showMessageDialog(null, "Información faltante o erroenea");
+                }
                 }else{
                     JOptionPane.showMessageDialog(null, "Información faltante o erroenea");
                 }
+                
+                
 
                 
             } 
+        });
+        //Boton atras
+        btnAtrasCC.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                JFrame interfazIS = new JFrame ("interfazInicioSesion");
+                //frame.setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
+                interfazIS.getContentPane().add (new InterfazInicioSesion());
+                interfazIS.pack();
+                interfazIS.setVisible (true);
+                ((Window) getRootPane().getParent()).dispose();
+            }
         });
     }
 
     
 
 
-    /* public static void main (String[] args) {
-        JFrame interfazCC = new JFrame ("InterfazCrearCuenta");
-        interfazCC.setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
-        interfazCC.getContentPane().add (new InterfazCrearCuenta());
-        interfazCC.pack();
-        interfazCC.setVisible (true);
-    } */
+    public static void main (String[] args) {
+        JFrame frame = new JFrame ("InterfazInicioSesion");
+        frame.setDefaultCloseOperation (JFrame.DISPOSE_ON_CLOSE);
+        frame.getContentPane().add (new InterfazInicioSesion());
+        frame.pack();
+        frame.setVisible (true);
+    } 
 }

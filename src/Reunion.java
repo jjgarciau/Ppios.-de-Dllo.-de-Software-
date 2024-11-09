@@ -5,7 +5,7 @@ public class Reunion {
     public int maxEstudiantes;
     public int idReunion;
     public int personasInscritas;
-    public Reunion(String lugar, Date fechaHora, Monitor monitor,int maxEstudiantes) {
+    public Reunion(String lugar, Date fechaHora, Estudiante monitor,int maxEstudiantes) {
         this.lugar = lugar;
         this.fechaHora = fechaHora;
     }
@@ -16,6 +16,9 @@ public class Reunion {
 
     public Date getFechaHora(){
         return fechaHora;
+    }
+    public int getMaxEstudiantes(){
+        return maxEstudiantes;
     }
     //Setters
     public void setLugar(String lugar){
@@ -60,4 +63,5 @@ public class Reunion {
     public void verificarCantidadEstudiantes(){
 
     }
+    
 }

@@ -6,6 +6,7 @@ import java.awt.event.*;
 import javax.swing.*;
 
 public class InterfazInicioSesion extends JPanel {
+    private Estudiante usuarioActual;
     private JButton btnCrearCuenta;
     private JButton btnIniciarSesion;
     private JTextField ingresoUsuario;
@@ -19,7 +20,7 @@ public class InterfazInicioSesion extends JPanel {
         ingresoContraseña = new JPasswordField (5);
 
         //Prueba Usuario
-        Estudiante estudiante = new Estudiante("Juan", "Perez", "prueba@eafit.edu.co", 1000264476, "admin", "Estudiante") ;
+        Estudiante estudiante = new Estudiante("Juan", "Perez", "prueba", 1000264476, "admin", "Estudiante");
         //Fin prueba usuario
 
         //adjust size and set layout
@@ -50,10 +51,11 @@ public class InterfazInicioSesion extends JPanel {
                 if ((usuario.equals(estudiante.getCorreoInstitucional())||usuario.equals(String.valueOf(estudiante.getIdEpik())))&& contraseña.equals(estudiante.getContraseña())) {
                     JOptionPane.showMessageDialog(null, "Inicio de sesión exitoso");
                     JFrame frame = new JFrame ("interfazCrearCuenta");
-                frame.setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
-                frame.getContentPane().add (new MainInterfaz());
-                frame.pack();
-                frame.setVisible (true);
+                    frame.setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
+                    frame.getContentPane().add (new MainInterfaz());
+                    frame.pack();
+                    frame.setVisible (true);
+                    ((Window) getRootPane().getParent()).dispose();
                 } else {
                     JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos");
                 }
@@ -75,7 +77,7 @@ public class InterfazInicioSesion extends JPanel {
     }
     public static void main(String[] args) {
         JFrame frame = new JFrame ("InterfazInicioSesion");
-        frame.setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation (JFrame.DISPOSE_ON_CLOSE);
         frame.getContentPane().add (new InterfazInicioSesion());
         frame.pack();
         frame.setVisible (true);

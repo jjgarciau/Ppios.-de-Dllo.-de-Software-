@@ -30,6 +30,9 @@ public class Estudiante {
     public String getApellidos(){
         return apellidos;
     }
+    public String getTipoUsuario(){
+        return tipoUsuario;
+    }
     //Setters
     public void setIdEpik(int idEpik){
         this.idEpik = idEpik;
@@ -45,6 +48,9 @@ public class Estudiante {
     }
     public void setApellidos(String apellidos){
         this.apellidos = apellidos;
+    }
+    public void setTipoUsuario(String tipoUsuario){
+        this.tipoUsuario = tipoUsuario;
     }
     //Encriptar contraseña
     public void encriptarContraseña(){

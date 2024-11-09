@@ -4,9 +4,10 @@
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-import javax.swing.event.*;
 
 public class InterfazActualizarInformacion extends JPanel {
+    private Estudiante usuarioActual;
+    private  JButton btnAtrasAC;
     private JButton btnActualizarInformacion;
     private JTextField nombreMostrar;
     private JTextField apellidosMostrar;
@@ -16,6 +17,10 @@ public class InterfazActualizarInformacion extends JPanel {
     private JLabel txtApellidos;
     private JLabel txtIdEpik;
     private JLabel txtCorreoInstitucional;
+    private JLabel txtNombresUsuario;
+    private JLabel txtApellidosUsuario;
+    private JLabel txtIdEpikUsuario;
+    private JLabel txtCorreoInstitucionalUsuario;
     private JLabel txtInformacionPersonal;
     private JLabel rolActualizar;
     private JComboBox selectorRol;
@@ -23,8 +28,9 @@ public class InterfazActualizarInformacion extends JPanel {
     public InterfazActualizarInformacion() {
         //construct preComponents
         String[] selectorRolItems = {"Estudiante", "Monitor", "Administrador"};
-
+        usuarioActual = new Estudiante("Juan", "Perez", "prueba", 1000264476, "admin" ,"estudiante");
         //construct components
+        btnAtrasAC = new JButton ("Atras");
         btnActualizarInformacion = new JButton ("Actualizar información");
         nombreMostrar = new JTextField (5);
         apellidosMostrar = new JTextField (5);
@@ -34,6 +40,10 @@ public class InterfazActualizarInformacion extends JPanel {
         txtApellidos = new JLabel ("Apellidos");
         txtIdEpik = new JLabel ("Id de Epik");
         txtCorreoInstitucional = new JLabel ("Correo Institucional");
+        txtNombresUsuario = new JLabel (usuarioActual.getNombres());
+        txtApellidosUsuario = new JLabel (usuarioActual.getApellidos());
+        txtIdEpikUsuario = new JLabel (String.valueOf(usuarioActual.getIdEpik()));
+        txtCorreoInstitucionalUsuario = new JLabel (usuarioActual.getCorreoInstitucional());
         txtInformacionPersonal = new JLabel ("Información personal");
         rolActualizar = new JLabel ("Rol");
         selectorRol = new JComboBox (selectorRolItems);
@@ -43,6 +53,7 @@ public class InterfazActualizarInformacion extends JPanel {
         setLayout (null);
 
         //add components
+        add(btnAtrasAC);
         add (btnActualizarInformacion);
         add (nombreMostrar);
         add (apellidosMostrar);
@@ -52,11 +63,16 @@ public class InterfazActualizarInformacion extends JPanel {
         add (txtApellidos);
         add (txtIdEpik);
         add (txtCorreoInstitucional);
+        add (txtNombresUsuario);
+        add (txtApellidosUsuario);
+        add (txtIdEpikUsuario);
+        add (txtCorreoInstitucionalUsuario);
         add (txtInformacionPersonal);
         add (rolActualizar);
         add (selectorRol);
 
         //set component bounds (only needed by Absolute Positioning)
+        btnAtrasAC.setBounds (10, 10, 75, 25);
         btnActualizarInformacion.setBounds (275, 445, 340, 40);
         nombreMostrar.setBounds (160, 85, 200, 30);
         apellidosMostrar.setBounds (160, 130, 200, 30);
@@ -66,9 +82,24 @@ public class InterfazActualizarInformacion extends JPanel {
         txtApellidos.setBounds (60, 130, 100, 25);
         txtIdEpik.setBounds (55, 175, 100, 25);
         txtCorreoInstitucional.setBounds (40, 220, 120, 25);
-        txtInformacionPersonal.setBounds (45, 25, 130, 25);
+        txtNombresUsuario.setBounds (380, 90, 115, 25);
+        txtApellidosUsuario.setBounds (380, 130, 100, 25);
+        txtIdEpikUsuario.setBounds (380, 175, 100, 25);
+        txtCorreoInstitucionalUsuario.setBounds (380, 220, 120, 25);
+        txtInformacionPersonal.setBounds (45, 50, 130, 25);
         rolActualizar.setBounds (655, 40, 100, 25);
         selectorRol.setBounds (655, 65, 100, 25);
+
+        btnAtrasAC.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                JFrame interfazMI = new JFrame ("interfazMain");
+                //frame.setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
+                interfazMI.getContentPane().add (new MainInterfaz());
+                interfazMI.pack();
+                interfazMI.setVisible (true);
+                ((Window) getRootPane().getParent()).dispose();
+            }
+        });
     }
 
 
