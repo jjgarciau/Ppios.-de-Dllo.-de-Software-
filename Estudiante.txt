@@ -1,0 +1,3 @@
+1001, Pedro, Pérez, pruebaM, admin, Monitor
+10002011, Juan, Garcia, jjgarciau@eafit.edu.co, Jujogaur_0500, Estudiante
+123, jj, gu, @eafit, password, Estudiante
