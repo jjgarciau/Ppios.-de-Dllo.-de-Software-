@@ -117,9 +117,11 @@ public class MainInterfaz extends JFrame {
                         // Convertir fechaHoraNuevoReunion de String a Date
                         SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm");
                         Date fechaHoraNuevoReunionDate = dateFormat.parse(fechaHoraNuevoReunion);
-                               
+
+                        //lista de estudaintes inscritos
+                        int listaEstudiantesInscritos[] = new int[maxEstudiantesNuevoReunionInt];
                         // Crear la reunión con los datos convertidos
-                        Reunion nuevaReunion = new Reunion(lugarNuevoReunion, fechaHoraNuevoReunionDate, usuarioActual, maxEstudiantesNuevoReunionInt);
+                        Reunion nuevaReunion = new Reunion(lugarNuevoReunion, fechaHoraNuevoReunionDate, usuarioActual, maxEstudiantesNuevoReunionInt, listaEstudiantesInscritos);
                         DefaultListModel<String> model = new DefaultListModel<>();
                         for (int i = 0; i < listMisReunion.getModel().getSize(); i++) {
                             model.addElement(listMisReunion.getModel().getElementAt(i).toString());
@@ -140,11 +142,12 @@ public class MainInterfaz extends JFrame {
                 } else {
                     JOptionPane.showMessageDialog(null, "Información faltante o errónea");
                 }
+                //Mostar las reuniones disponibles
                 if(!reunionesDisponibles.isEmpty()){
                     DefaultListModel<String> model = new DefaultListModel<>();
                     for (int i = 0; i < reunionesDisponibles.size(); i++) {
-                        //Fallaba a la hora de mostrar el la materia de la reunion
-                        model.addElement(/* reunionesDisponibles.get(i).getMonitor().getMateria()+ " " +  */reunionesDisponibles.get(i).getLugar() + " " + reunionesDisponibles.get(i).getFechaHora() + " " + reunionesDisponibles.get(i).getMaxEstudiantes());
+                        //Fallaba a la hora de mostrar el la materia de la reunion          Cambiar el String 0/ por un contador de estudiantes inscritos
+                        model.addElement(/* reunionesDisponibles.get(i).getMonitor().getMateria()+ " " +  */reunionesDisponibles.get(i).getLugar() + " " + reunionesDisponibles.get(i).getFechaHora() + "    0/" + reunionesDisponibles.get(i).getMaxEstudiantes());
                     }
                     listReunionDisponible.setModel(model);
                 }
@@ -164,9 +167,12 @@ public class MainInterfaz extends JFrame {
                             // Convertir fechaHoraNuevoReunion de String a Date
                             SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm");
                             Date fechaHoraNuevoReunionDate = dateFormat.parse(fechaHoraNuevoReunion);
-            
+                            
+                            //lista de estudaintes inscritos
+                            int listaEstudiantesInscritos[] = new int[maxEstudiantesNuevoReunionInt];
+
                             // Crear la reunión con los datos convertidos
-                            Reunion nuevaReunion = new Reunion(lugarNuevoReunion, fechaHoraNuevoReunionDate, usuarioActual, maxEstudiantesNuevoReunionInt);
+                            Reunion nuevaReunion = new Reunion(lugarNuevoReunion, fechaHoraNuevoReunionDate, usuarioActual, maxEstudiantesNuevoReunionInt, listaEstudiantesInscritos);
                             DefaultListModel<String> model = new DefaultListModel<>();
                             for (int i = 0; i < listMisReunion.getModel().getSize(); i++) {
                                 model.addElement(listMisReunion.getModel().getElementAt(i).toString());
@@ -188,6 +194,7 @@ public class MainInterfaz extends JFrame {
                 } else {
                     JOptionPane.showMessageDialog(null, "Selecciona una reunión para editar");
                 }
+                
             });
             btnEliminarReunion.addActionListener(e -> {
                 //Eliminar reunión
@@ -208,7 +215,7 @@ public class MainInterfaz extends JFrame {
                     }      
                 } else {
                     JOptionPane.showMessageDialog(null, "Selecciona una reunión para eliminar");
-                }
+                }            
             });
               
         }//Fin if
