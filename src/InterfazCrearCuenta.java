@@ -85,6 +85,7 @@ public class InterfazCrearCuenta extends JFrame {
             String idEpikNuevo = cuadroTxtIdEpikNuevo.getText();
             String contrasenaNuevo = new String(pssNuevaContraseña.getPassword());
             String contrasenaConfirmarNuevo = new String(pssNuevaContraseña2.getPassword());
+            
             if(!idEpikNuevo.trim().equals("")){
                 int idEpikNuevoInt = Integer.parseInt(idEpikNuevo);
                 if ((!nombresNuevo.trim().isEmpty())&&(!apellidosNuevo.trim().isEmpty())&&(!correoNuevo.trim().isEmpty())&&(!idEpikNuevo.trim().isEmpty())&&(!contrasenaNuevo.trim().isEmpty())&&(contrasenaNuevo.equals(contrasenaConfirmarNuevo))){
@@ -118,6 +119,7 @@ public class InterfazCrearCuenta extends JFrame {
                 
 
         });
+
         //Boton atras
         btnAtrasCC.addActionListener(e -> {
             JFrame interfazIS = new InterfazInicioSesion();

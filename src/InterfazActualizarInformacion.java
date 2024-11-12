@@ -19,8 +19,21 @@ public class InterfazActualizarInformacion extends JFrame {
     private final JLabel txtContraseñaNuevo;
     private final JLabel txtCorreoInstitucionalNuevo;
     private final JLabel txtInformacionPersonal;
-    private final JLabel rolActualizar;
-    private final JComboBox selectorRol;
+    private JLabel txtRol;
+    private JComboBox selectorRol;
+    private JButton btnBuscar;
+    private JTextField cuadroTxtbuscarIdEpik;
+    private JLabel txtNombresBusquedad;
+    private JLabel txtNombresEncontrado;
+    private JLabel txtApellidosBusquedad;
+    private JLabel txtApellidosEncontrado;
+    private JLabel txtCorreoBusquedad;
+    private JLabel txtCorreoEncontrado;
+    private JLabel txtIdEpikBusquedad;
+    private JLabel txtIdEpikEncontrado;
+    private JButton btnActualizarRol;
+    private JLabel txtBuscarUsuario;
+
 
     public InterfazActualizarInformacion(Estudiante usuarioActual) {
         
@@ -35,15 +48,29 @@ public class InterfazActualizarInformacion extends JFrame {
         correoInstitucionalMostrar = new JTextField (5);
         txtNombres = new JLabel ("Nombres: " + usuarioActual.getNombres());
         txtApellidos = new JLabel ("Apellidos: " + usuarioActual.getApellidos());
-        txtContraseña = new JLabel ("Contraseña: " + usuarioActual.getContraseña());
+        txtContraseña = new JLabel ("Contraseña: **********");
         txtCorreoInstitucional = new JLabel ("Correo: " + usuarioActual.getCorreoInstitucional());
         txtNombresNuevo = new JLabel ("Cambiar nombres: ");
         txtApellidosNuevo = new JLabel ("Cambiar apellidos: ");
         txtContraseñaNuevo = new JLabel ("Cambiar contraseña: ");
         txtCorreoInstitucionalNuevo = new JLabel ("Cambiar correo: ");
-        txtInformacionPersonal = new JLabel ("Información personal, id de Epik: " + usuarioActual.getIdEpik());
-        rolActualizar = new JLabel ("Rol");
+        txtInformacionPersonal = new JLabel ("Información personal: Id de Epik: " + usuarioActual.getIdEpik());
+        txtRol = new JLabel ("Rol");
         selectorRol = new JComboBox (selectorRolItems);
+
+        btnBuscar = new JButton ("Buscar");
+        cuadroTxtbuscarIdEpik = new JTextField (5);
+
+        txtNombresBusquedad = new JLabel ("Nombres");
+        txtNombresEncontrado = new JLabel ("");
+        txtApellidosBusquedad = new JLabel ("Apellidos");
+        txtApellidosEncontrado = new JLabel ("");
+        txtCorreoBusquedad = new JLabel ("Correo institucional");
+        txtCorreoEncontrado = new JLabel ("");
+        txtIdEpikBusquedad = new JLabel ("Id de Epik");
+        txtIdEpikEncontrado = new JLabel ("");
+        btnActualizarRol = new JButton ("Actualizar rol");
+        txtBuscarUsuario = new JLabel ("Buscar usuario por Id de Epik");
 
         //adjust size and set layout
         setSize(1080, 720);
@@ -65,12 +92,13 @@ public class InterfazActualizarInformacion extends JFrame {
         add (txtContraseñaNuevo);
         add (txtCorreoInstitucionalNuevo);
         add (txtInformacionPersonal);
-        add (rolActualizar);
-        add (selectorRol);
+        
+        
+        
 
         //set component bounds (only needed by Absolute Positioning)
         btnAtrasAC.setBounds (10, 10, 75, 25);
-        btnActualizarInformacion.setBounds (275, 445, 340, 40);
+        btnActualizarInformacion.setBounds (45, 270, 240, 30);
         nombreMostrar.setBounds (390, 85, 200, 30);
         apellidosMostrar.setBounds (390, 130, 200, 30);
         contraseñaMostrar.setBounds (390, 175, 200, 30);
@@ -84,9 +112,23 @@ public class InterfazActualizarInformacion extends JFrame {
         txtContraseñaNuevo.setBounds (260, 175, 140, 25);
         txtCorreoInstitucionalNuevo.setBounds (260, 220, 140, 25);
         txtInformacionPersonal.setBounds (45, 50, 250, 25);
-        rolActualizar.setBounds (655, 40, 100, 25);
-        selectorRol.setBounds (655, 65, 100, 25);
+        txtRol.setBounds (635, 300, 100, 25);
+        selectorRol.setBounds (870, 300, 100, 25);
 
+        btnBuscar.setBounds (870, 105, 140, 30);
+        cuadroTxtbuscarIdEpik.setBounds (635, 105, 195, 30);
+        txtNombresBusquedad.setBounds (635, 155, 100, 25);
+        txtNombresEncontrado.setBounds (870, 155, 100, 25);
+        txtApellidosBusquedad.setBounds (635, 190, 100, 25);
+        txtApellidosEncontrado.setBounds (870, 190, 100, 25);
+        txtCorreoBusquedad.setBounds (635, 225, 120, 25);
+        txtCorreoEncontrado.setBounds (870, 225, 250, 25);
+        txtIdEpikBusquedad.setBounds (635, 260, 100, 25);
+        txtIdEpikEncontrado.setBounds (870, 260, 100, 25);
+        btnActualizarRol.setBounds (870, 340, 140, 30);
+        txtBuscarUsuario.setBounds (635, 60, 200, 25);
+
+        //Boton para retroceder a la interfaz principal
         btnAtrasAC.addActionListener(e -> {
             JFrame interfazMI = new MainInterfaz (usuarioActual);
             interfazMI.setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
@@ -131,10 +173,63 @@ public class InterfazActualizarInformacion extends JFrame {
             } else {
                 JOptionPane.showMessageDialog(null, "Si quiere actualizar la información, debe llenar al menos un campo");
             }
+        });
+            //prueba arraylist estudiantes
+        /* ArrayList<Estudiante> listaEstudiantes = new ArrayList<Estudiante>();
+        Estudiante estudiante1 = new Estudiante(4567,"Juan", "Jimenez", "jejimenez",  "password", "Estudiante");
+        Estudiante estudiante2 = new Estudiante(1234,"Maria", "Perez", "mariaperez",  "password", "Estudiante");
+        Estudiante estudiante3 = new Estudiante(7890,"Pedro", "Gomez", "pedrogomez",  "password", "Estudiante");
+        listaEstudiantes.add(estudiante1);
+        listaEstudiantes.add(estudiante2);
+        listaEstudiantes.add(estudiante3); */
 
-            
+        if(usuarioActual.getTipoUsuario().equals("Administrador")){
+            add (btnBuscar);
+            add (cuadroTxtbuscarIdEpik);
+            add (txtNombresBusquedad);     
+            add (txtApellidosBusquedad);
+            add (txtCorreoBusquedad);            
+            add (txtIdEpikBusquedad);            
+            add(btnActualizarRol);
+            add(txtBuscarUsuario);
+            add (selectorRol);
+            add (txtRol);
+        }
+        //Evento para buscar un usuario siendo administrador
+        btnBuscar.addActionListener(e -> {
+            add (selectorRol);
+            add (txtNombresEncontrado);
+            add (txtApellidosEncontrado);
+            add (txtCorreoEncontrado);
+            add (txtIdEpikEncontrado);
+            boolean found = false;
+            for (Estudiante estudiante : BaseDeDatos.obtenerUsuarios()) {
+            if (estudiante.getIdEpik() == Integer.parseInt(cuadroTxtbuscarIdEpik.getText())) {
+                txtNombresEncontrado.setText(estudiante.getNombres());
+                txtApellidosEncontrado.setText(estudiante.getApellidos());
+                txtCorreoEncontrado.setText(estudiante.getCorreoInstitucional());
+                txtIdEpikEncontrado.setText(String.valueOf(estudiante.getIdEpik()));
+                found = true;
+                break;
+            }
+            }
+            if (!found) {
+            JOptionPane.showMessageDialog(null, "No se encontró el estudiante");
+            }
         });
 
+        btnActualizarRol.addActionListener(e -> {
+            String rolSeleccionado = (String) selectorRol.getSelectedItem();
+            int idEpik = Integer.parseInt(cuadroTxtbuscarIdEpik.getText());
+            for (Estudiante estudiante : BaseDeDatos.obtenerUsuarios()) {
+                if (estudiante.getIdEpik() == idEpik) {
+                    estudiante.setTipoUsuario(rolSeleccionado);
+                    BaseDeDatos.actualizarUsuario(estudiante);
+                    JOptionPane.showMessageDialog(null, "Rol actualizado");
+                    break;
+                }
+            }
+        });
     }
 
 

@@ -4,10 +4,14 @@ public class Reunion {
     public Date fechaHora;
     public int maxEstudiantes;
     public int idReunion;
+    public Monitor monitor;
     public int personasInscritas;
+
     public Reunion(String lugar, Date fechaHora, Estudiante monitor,int maxEstudiantes) {
         this.lugar = lugar;
         this.fechaHora = fechaHora;
+        this.maxEstudiantes = maxEstudiantes;
+
     }
      //Getters
     public String getLugar(){
@@ -19,6 +23,9 @@ public class Reunion {
     }
     public int getMaxEstudiantes(){
         return maxEstudiantes;
+    }
+    public Monitor getMonitor(){
+        return monitor;
     }
     //Setters
     public void setLugar(String lugar){
