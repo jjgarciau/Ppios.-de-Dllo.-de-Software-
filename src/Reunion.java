@@ -1,5 +1,6 @@
 import java.util.Date;
 public class Reunion {
+    public int listaEstudiantesInscritos[];
     public String lugar;
     public Date fechaHora;
     public int maxEstudiantes;
@@ -7,7 +8,7 @@ public class Reunion {
     public Monitor monitor;
     public int personasInscritas;
 
-    public Reunion(String lugar, Date fechaHora, Estudiante monitor,int maxEstudiantes) {
+    public Reunion(String lugar, Date fechaHora, Estudiante monitor,int maxEstudiantes, int listaEstudiantesInscritos[]) {
         this.lugar = lugar;
         this.fechaHora = fechaHora;
         this.maxEstudiantes = maxEstudiantes;
@@ -37,7 +38,7 @@ public class Reunion {
     }
 
     public void crearReunion(String lugar, Date fechaHora, Monitor monitor){
-        Reunion reunion = new Reunion(lugar, fechaHora, monitor, maxEstudiantes);
+        Reunion reunion = new Reunion(lugar, fechaHora, monitor, maxEstudiantes, listaEstudiantesInscritos);
     }
 
     public void editarReunion(String lugar, Date fechaHora){
