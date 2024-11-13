@@ -21,8 +21,6 @@ public class Reunion {
         return BaseDeDatos.getMateriaMonitor(monitor);
     }
 
-    // public 
-
     public int getIdReunion(){
         return idReunion;
     }
@@ -61,35 +59,5 @@ public class Reunion {
         this.personasInscritas = personasInscritas;
     }
 
-    public void editarReunion(String lugar, String fechaHora){
-        this.lugar = lugar;
-        this.fechaHora = fechaHora;
-    }
-    public void actualizarInformacionReunion(){
-        //Actualizar información de la reunión
-    }
 
-    public void eliminarReunion(){
-        this.lugar = null;
-        this.fechaHora = null;
-        //Eliminar reunion de la base de datos
-    }
-
-    public void guardarReunion(){
-        //Guardar reunion en la base de datos
-    }
-    //Verificar disponibilidad de la reunion
-    public void verificarDisponibilidad(){
-        //Verificar disponibilidad de la reunion
-    }
-    
-    //Enviar correo de confirmación de la reunión
-    public void enviarCorreoConfirmacion(){
-        //Enviar correo de confirmación de la reunión
-    }
-    //Verificar cuantos estudiantes hay en la reunion
-    public void verificarCantidadEstudiantes(){
-
-    }
-    
 }

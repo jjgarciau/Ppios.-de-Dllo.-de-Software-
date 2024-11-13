@@ -19,20 +19,20 @@ public class InterfazActualizarInformacion extends JFrame {
     private final JLabel txtContraseñaNuevo;
     private final JLabel txtCorreoInstitucionalNuevo;
     private final JLabel txtInformacionPersonal;
-    private JLabel txtRol;
-    private JComboBox selectorRol;
-    private JButton btnBuscar;
+    private final JLabel txtRol;
+    private JComboBox<String> selectorRol;
+    private final JButton btnBuscar;
     private JTextField cuadroTxtbuscarIdEpik;
-    private JLabel txtNombresBusquedad;
+    private final JLabel txtNombresBusquedad;
     private JLabel txtNombresEncontrado;
-    private JLabel txtApellidosBusquedad;
+    private final JLabel txtApellidosBusquedad;
     private JLabel txtApellidosEncontrado;
-    private JLabel txtCorreoBusquedad;
+    private final JLabel txtCorreoBusquedad;
     private JLabel txtCorreoEncontrado;
-    private JLabel txtIdEpikBusquedad;
+    private final JLabel txtIdEpikBusquedad;
     private JLabel txtIdEpikEncontrado;
-    private JButton btnActualizarRol;
-    private JLabel txtBuscarUsuario;
+    private final JButton btnActualizarRol;
+    private final JLabel txtBuscarUsuario;
 
 
     public InterfazActualizarInformacion(Estudiante usuarioActual) {
@@ -56,7 +56,7 @@ public class InterfazActualizarInformacion extends JFrame {
         txtCorreoInstitucionalNuevo = new JLabel ("Cambiar correo: ");
         txtInformacionPersonal = new JLabel ("Información personal: Id de Epik: " + usuarioActual.getIdEpik());
         txtRol = new JLabel ("Rol");
-        selectorRol = new JComboBox (selectorRolItems);
+        selectorRol = new JComboBox<> (selectorRolItems);
 
         btnBuscar = new JButton ("Buscar");
         cuadroTxtbuscarIdEpik = new JTextField (5);
@@ -174,14 +174,6 @@ public class InterfazActualizarInformacion extends JFrame {
                 JOptionPane.showMessageDialog(null, "Si quiere actualizar la información, debe llenar al menos un campo");
             }
         });
-            //prueba arraylist estudiantes
-        /* ArrayList<Estudiante> listaEstudiantes = new ArrayList<Estudiante>();
-        Estudiante estudiante1 = new Estudiante(4567,"Juan", "Jimenez", "jejimenez",  "password", "Estudiante");
-        Estudiante estudiante2 = new Estudiante(1234,"Maria", "Perez", "mariaperez",  "password", "Estudiante");
-        Estudiante estudiante3 = new Estudiante(7890,"Pedro", "Gomez", "pedrogomez",  "password", "Estudiante");
-        listaEstudiantes.add(estudiante1);
-        listaEstudiantes.add(estudiante2);
-        listaEstudiantes.add(estudiante3); */
 
         if(usuarioActual.getTipoUsuario().equals("Administrador")){
             add (btnBuscar);
@@ -235,7 +227,7 @@ public class InterfazActualizarInformacion extends JFrame {
 
     public static void main (String[] args) {
         SwingUtilities.invokeLater(() -> {
-            new InterfazInicioSesion();
+            new InterfazInicioSesion().setVisible(true);
         });
     }
 }

@@ -4,7 +4,7 @@ import java.util.List;
 
 public class BaseDeDatos {
 
-    public static void editarReunion(Reunion reunion){
+    public static void modificarReunion(Reunion reunion){
         List<Reunion> reuniones = obtenerReuniones();
         try (BufferedWriter bw = new BufferedWriter(new FileWriter("Tablas/Reunion.txt"))) {
             for (Reunion r : reuniones) {
@@ -22,7 +22,7 @@ public class BaseDeDatos {
         }
     }
 
-    public static void eliminarReunion(int idReunion){
+    public static void borrarReunion(int idReunion){
         List<Reunion> reuniones = obtenerReuniones();
         try (BufferedWriter bw = new BufferedWriter(new FileWriter("Tablas/Reunion.txt"))) {
             for (Reunion r : reuniones) {
@@ -127,7 +127,7 @@ public class BaseDeDatos {
         return null;
     }
 
-    public static void agregarReunion(Reunion reunion){
+    public static void añadirReunion(Reunion reunion){
         List<Reunion> reuniones = obtenerReuniones();
 
         try (PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter("Tablas/Reunion.txt", true))) ){
@@ -257,7 +257,7 @@ public class BaseDeDatos {
             }
             personasInscritas.add(estudiante.getIdEpik());
             reunion.setPersonasInscritas(personasInscritas);
-            editarReunion(reunion);
+            modificarReunion(reunion);
             mensaje = "Te has inscrito correctamente.";
             return mensaje;
 
@@ -274,7 +274,7 @@ public class BaseDeDatos {
         if(personasInscritas.contains(estudiante.getIdEpik())){
             personasInscritas.remove(Integer.valueOf(estudiante.getIdEpik()));
             reunion.setPersonasInscritas(personasInscritas);
-            editarReunion(reunion);
+            modificarReunion(reunion);
             mensaje = "Saliste de la reunión.";
             return mensaje;
         } else {
