@@ -1,47 +1,67 @@
-import java.util.Date;
+import java.util.List;
 public class Reunion {
-    public int listaEstudiantesInscritos[];
     public String lugar;
-    public Date fechaHora;
+    public String fechaHora;
     public int maxEstudiantes;
     public int idReunion;
-    public Monitor monitor;
-    public int personasInscritas;
+    public int monitor;
+    public List<Integer> personasInscritas;
 
-    public Reunion(String lugar, Date fechaHora, Estudiante monitor,int maxEstudiantes, int listaEstudiantesInscritos[]) {
+    public Reunion(int idReunion, String lugar, String fechaHora, int monitor,int maxEstudiantes, List<Integer> personasinscritas){
+        this.idReunion = idReunion;
         this.lugar = lugar;
         this.fechaHora = fechaHora;
         this.maxEstudiantes = maxEstudiantes;
+        this.monitor = monitor;
+        this.personasInscritas = personasinscritas;
 
     }
      //Getters
+    public String getMateriaDeMonitor(){
+        return BaseDeDatos.getMateriaMonitor(monitor);
+    }
+
+    // public 
+
+    public int getIdReunion(){
+        return idReunion;
+    }
+
     public String getLugar(){
         return lugar;
     }
 
-    public Date getFechaHora(){
+    public String getFechaHora(){
         return fechaHora;
     }
     public int getMaxEstudiantes(){
         return maxEstudiantes;
     }
-    public Monitor getMonitor(){
+    public int getMonitor(){
         return monitor;
     }
+    public List<Integer> getPersonasInscritas(){
+        return personasInscritas;
+    }
+
     //Setters
+    public void setMaxEstudiantes(int maxEstudiantes){
+        this.maxEstudiantes = maxEstudiantes;
+    }
+
     public void setLugar(String lugar){
         this.lugar = lugar;
     }
 
-    public void setFechaHora(Date fechaHora){
+    public void setFechaHora(String fechaHora){
         this.fechaHora = fechaHora;
     }
 
-    public void crearReunion(String lugar, Date fechaHora, Monitor monitor){
-        Reunion reunion = new Reunion(lugar, fechaHora, monitor, maxEstudiantes, listaEstudiantesInscritos);
+    public void setPersonasInscritas(List<Integer> personasInscritas){
+        this.personasInscritas = personasInscritas;
     }
 
-    public void editarReunion(String lugar, Date fechaHora){
+    public void editarReunion(String lugar, String fechaHora){
         this.lugar = lugar;
         this.fechaHora = fechaHora;
     }

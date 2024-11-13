@@ -1,4 +1,0 @@
-12, Pedro, Perez, pruebaM, admin, Monitor
-123, jj, gu, @eafit, password, Estudiante
-111, Administrador, Principal, admin, admin, Administrador
-159, Monitor, Prueba, monitor, monitor, Monitor

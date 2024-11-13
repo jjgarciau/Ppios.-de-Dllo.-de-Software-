@@ -49,7 +49,7 @@ public class InterfazActualizarInformacion extends JFrame {
         txtNombres = new JLabel ("Nombres: " + usuarioActual.getNombres());
         txtApellidos = new JLabel ("Apellidos: " + usuarioActual.getApellidos());
         txtContraseña = new JLabel ("Contraseña: **********");
-        txtCorreoInstitucional = new JLabel ("Correo: " + usuarioActual.getCorreoInstitucional());
+        txtCorreoInstitucional = new JLabel ("Correo: " + usuarioActual.getCorreo());
         txtNombresNuevo = new JLabel ("Cambiar nombres: ");
         txtApellidosNuevo = new JLabel ("Cambiar apellidos: ");
         txtContraseñaNuevo = new JLabel ("Cambiar contraseña: ");
@@ -158,7 +158,7 @@ public class InterfazActualizarInformacion extends JFrame {
             if(!correo.trim().isEmpty()){
                 usuarioActual.setCorreoInstitucional(correo);
                 correoInstitucionalMostrar.setText("");
-                txtCorreoInstitucional.setText("Correo: " + usuarioActual.getCorreoInstitucional());
+                txtCorreoInstitucional.setText("Correo: " + usuarioActual.getCorreo());
                 cambio = true;
             }
             if(!contraseña.trim().isEmpty()){
@@ -207,7 +207,7 @@ public class InterfazActualizarInformacion extends JFrame {
             if (estudiante.getIdEpik() == Integer.parseInt(cuadroTxtbuscarIdEpik.getText())) {
                 txtNombresEncontrado.setText(estudiante.getNombres());
                 txtApellidosEncontrado.setText(estudiante.getApellidos());
-                txtCorreoEncontrado.setText(estudiante.getCorreoInstitucional());
+                txtCorreoEncontrado.setText(estudiante.getCorreo());
                 txtIdEpikEncontrado.setText(String.valueOf(estudiante.getIdEpik()));
                 found = true;
                 break;
