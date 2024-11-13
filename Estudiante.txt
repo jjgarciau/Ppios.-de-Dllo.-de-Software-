@@ -1,2 +1,0 @@
-1001, Pedro, P�rez, pruebaM, admin, Monitor
-123, jj, gu, @eafit, password, Estudiante

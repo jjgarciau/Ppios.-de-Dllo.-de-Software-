@@ -1,15 +1,15 @@
 public class Estudiante {
     private String nombres;
     private String apellidos;
-    private String correoInstitucional;
+    private String correo;
     private int idEpik;
     private String contraseña;
     private String tipoUsuario;
     
-    public Estudiante(int idEpik, String nombres, String apellidos, String correoInstitucional, String contraseña, String tipoUsuario) {
+    public Estudiante(int idEpik, String nombres, String apellidos, String correo, String contraseña, String tipoUsuario) {
         this.nombres = nombres;
         this.apellidos = apellidos;
-        this.correoInstitucional = correoInstitucional;
+        this.correo = correo;
         this.idEpik = idEpik;
         this.contraseña = contraseña;
         this.tipoUsuario = tipoUsuario;
@@ -21,8 +21,8 @@ public class Estudiante {
     public String getContraseña(){
         return contraseña;
     }
-    public String getCorreoInstitucional(){
-        return correoInstitucional;
+    public String getCorreo(){
+        return correo;
     }
     public String getNombres(){
         return nombres;
@@ -40,8 +40,8 @@ public class Estudiante {
     public void setContraseña(String contraseña){
         this.contraseña = contraseña;
     }
-    public void setCorreoInstitucional(String correoInstitucional){
-        this.correoInstitucional = correoInstitucional;
+    public void setCorreoInstitucional(String correo){
+        this.correo = correo;
     }
     public void setNombres(String nombres){
         this.nombres = nombres;

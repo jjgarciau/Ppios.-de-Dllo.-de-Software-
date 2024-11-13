@@ -1,17 +1,16 @@
 public class Monitor extends Estudiante{
-    private String Materia;
-    public Monitor(int idEpik, String nombres, String apellidos, String correoInstitucional, String contraseña, String tipoUsuario, String Materia) {
+    private String materia;
+
+    public Monitor(int idEpik, String nombres, String apellidos, String correoInstitucional, String contraseña, String tipoUsuario, String materia) {
         super(idEpik ,nombres, apellidos, correoInstitucional, contraseña, tipoUsuario);
-        this.Materia = Materia;
+        this.materia = materia;
     }
 
     public String getMateria(){
-        return Materia;
+        return materia;
     }
     
-    public void setMateria(String Materia){
-        this.Materia = Materia;
+    public void setMateria(String materia){
+        this.materia = materia;
     }
-    
-    
 }

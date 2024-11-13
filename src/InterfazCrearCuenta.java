@@ -5,21 +5,20 @@ import javax.swing.*;
 //import javax.swing.event.*;
 
 public class InterfazCrearCuenta extends JFrame {
-    private Estudiante usuarioActual;
-    private  JButton btnAtrasCC;
-    private JButton btnCrearCuenta;
+    private final JButton btnAtrasCC;
+    private final JButton btnCrearCuenta;
     private JPasswordField pssNuevaContraseña;
     private JPasswordField pssNuevaContraseña2;
     private JTextField cuadroTxtNombresNuevo;
     private JTextField cuadroTxtApellidosNuevo;
     private JTextField cuadroTxtIdEpikNuevo;
     private JTextField cuadroTxtCorreoInstitucionalNuevo;
-    private JLabel txtNombres;
-    private JLabel txtApellidos;
-    private JLabel txtIdEpik;
-    private JLabel txtCorreoInstitucional;
-    private JLabel txtContraseña;
-    private JLabel txtConfirmarContraseña;
+    private final JLabel txtNombres;
+    private final JLabel txtApellidos;
+    private final JLabel txtIdEpik;
+    private final JLabel txtCorreoInstitucional;
+    private final JLabel txtContraseña;
+    private final JLabel txtConfirmarContraseña;
 
     public InterfazCrearCuenta() {
         //construct components
@@ -85,6 +84,7 @@ public class InterfazCrearCuenta extends JFrame {
             String idEpikNuevo = cuadroTxtIdEpikNuevo.getText();
             String contrasenaNuevo = new String(pssNuevaContraseña.getPassword());
             String contrasenaConfirmarNuevo = new String(pssNuevaContraseña2.getPassword());
+            
             if(!idEpikNuevo.trim().equals("")){
                 int idEpikNuevoInt = Integer.parseInt(idEpikNuevo);
                 if ((!nombresNuevo.trim().isEmpty())&&(!apellidosNuevo.trim().isEmpty())&&(!correoNuevo.trim().isEmpty())&&(!idEpikNuevo.trim().isEmpty())&&(!contrasenaNuevo.trim().isEmpty())&&(contrasenaNuevo.equals(contrasenaConfirmarNuevo))){
@@ -118,6 +118,7 @@ public class InterfazCrearCuenta extends JFrame {
                 
 
         });
+
         //Boton atras
         btnAtrasCC.addActionListener(e -> {
             JFrame interfazIS = new InterfazInicioSesion();
@@ -132,7 +133,7 @@ public class InterfazCrearCuenta extends JFrame {
 
     public static void main (String[] args) {
         SwingUtilities.invokeLater(() -> {
-            new InterfazInicioSesion();
+            new InterfazInicioSesion().setVisible(true);
         });
     } 
 }

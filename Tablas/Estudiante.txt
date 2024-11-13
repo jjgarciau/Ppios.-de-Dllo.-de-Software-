@@ -1,0 +1,5 @@
+12, Pedro, Perez, pruebaM, monitor, Monitor, Matematicas
+123, Juan, Garcia, @eafit, password, Estudiante
+111, Administrador, Principal, admin, admin, Administrador
+159, Monitor, Prueba, monitor, monitor, Monitor, Fisica
+102, Prueba1, Prueba1, correo1, pass1, Estudiante

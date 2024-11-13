@@ -4,8 +4,8 @@ import javax.swing.*;
 
 public class InterfazInicioSesion extends JFrame {
     private Estudiante usuarioActual;
-    private JButton btnCrearCuenta;
-    private JButton btnIniciarSesion;
+    private final JButton btnCrearCuenta;
+    private final JButton btnIniciarSesion;
     private JTextField ingresoUsuario;
     private JPasswordField ingresoContraseña;
 
@@ -89,7 +89,7 @@ public class InterfazInicioSesion extends JFrame {
     }
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
-            new InterfazInicioSesion();
+            new InterfazInicioSesion().setVisible(true);
         });
     }
 }
