@@ -36,7 +36,12 @@ public class InterfazActualizarInformacion extends JFrame {
 
 
     public InterfazActualizarInformacion(Estudiante usuarioActual) {
-        
+
+        StringBuilder asteriscos = new StringBuilder();
+        for(int i = 0; i < usuarioActual.getContraseña().length(); i++){
+            asteriscos.append("*");
+        }
+
         //construct preComponents
         String[] selectorRolItems = {"Estudiante", "Monitor", "Administrador"};
         //construct components
@@ -48,7 +53,7 @@ public class InterfazActualizarInformacion extends JFrame {
         correoInstitucionalMostrar = new JTextField (5);
         txtNombres = new JLabel ("Nombres: " + usuarioActual.getNombres());
         txtApellidos = new JLabel ("Apellidos: " + usuarioActual.getApellidos());
-        txtContraseña = new JLabel ("Contraseña: **********");
+        txtContraseña = new JLabel ("Contraseña: " + asteriscos.toString());
         txtCorreoInstitucional = new JLabel ("Correo: " + usuarioActual.getCorreo());
         txtNombresNuevo = new JLabel ("Cambiar nombres: ");
         txtApellidosNuevo = new JLabel ("Cambiar apellidos: ");
@@ -164,7 +169,7 @@ public class InterfazActualizarInformacion extends JFrame {
             if(!contraseña.trim().isEmpty()){
                 usuarioActual.setContraseña(contraseña);
                 contraseñaMostrar.setText("");
-                StringBuilder asteriscos = new StringBuilder();
+                asteriscos.setLength(0);
                 for (int i = 0; i < contraseña.length(); i++) {
                     asteriscos.append("*");
                 }
