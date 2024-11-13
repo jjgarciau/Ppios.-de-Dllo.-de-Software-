@@ -141,8 +141,8 @@ public class MainInterfaz extends JFrame {
                     //Actualizar las reuniones disponibles
                     List<Reunion> nuevasReunionesDisponibles = BaseDeDatos.obtenerReuniones();
                     Reunion reuAgregada = nuevasReunionesDisponibles.get(nuevasReunionesDisponibles.size()-1);
-                    ItemsReunionesDisponibles.addElement("[" + reuAgregada.getIdReunion() + "]" + "Materia: " + reuAgregada.getMateriaDeMonitor() + "| Fecha y hora: " + reuAgregada.getFechaHora() + "| Cantidad de personas:  " + reuAgregada.getPersonasInscritas().size() + "/" + reuAgregada.getMaxEstudiantes());
-                    MisReunionItems.addElement("[" + reuAgregada.getIdReunion() + "]" + "Materia: " + reuAgregada.getMateriaDeMonitor() + "| Fecha y hora: " + reuAgregada.getFechaHora() + "| Cantidad de personas:  " + reuAgregada.getPersonasInscritas().size() + "/" + reuAgregada.getMaxEstudiantes());
+                    ItemsReunionesDisponibles.addElement("[" + reuAgregada.getIdReunion() + "]" + "Materia: " + reuAgregada.getMateriaDeMonitor() + "| Lugar: " + reuAgregada.getLugar() + "| Fecha: " + reuAgregada.getFechaHora() + "| Personas:  " + reuAgregada.getPersonasInscritas().size() + "/" + reuAgregada.getMaxEstudiantes());
+                    MisReunionItems.addElement("[" + reuAgregada.getIdReunion() + "]" + "Materia: " + reuAgregada.getMateriaDeMonitor() + "| Lugar: " + reuAgregada.getLugar() + "| Fecha: " + reuAgregada.getFechaHora() + "| Personas:  " + reuAgregada.getPersonasInscritas().size() + "/" + reuAgregada.getMaxEstudiantes());
 
                     JOptionPane.showMessageDialog(null, "Reunión creada exitosamente");
                 } else {
@@ -205,10 +205,10 @@ public class MainInterfaz extends JFrame {
                         ItemsReunionesDisponibles.clear();
                         MisReunionItems.clear();
                         for(Reunion r: nuevasReunionesDisponibles){
-                            ItemsReunionesDisponibles.addElement("[" + r.getIdReunion() + "]" + "Materia: " + r.getMateriaDeMonitor() + "| Fecha y hora: " + r.getFechaHora() + "| Cantidad de personas:  " + r.getPersonasInscritas().size() + "/" + r.getMaxEstudiantes());
+                            ItemsReunionesDisponibles.addElement("[" + r.getIdReunion() + "]" + "Materia: " + r.getMateriaDeMonitor() + "| Lugar: " + r.getLugar() + "| Fecha: " + r.getFechaHora() + "| Personas:  " + r.getPersonasInscritas().size() + "/" + r.getMaxEstudiantes());
                         }
                         for(Reunion r: nuevasReunionesMonitor){
-                            MisReunionItems.addElement("[" + r.getIdReunion() + "]" + "Materia: " + r.getMateriaDeMonitor() + "| Fecha y hora: " + r.getFechaHora() + "| Cantidad de personas:  " + r.getPersonasInscritas().size() + "/" + r.getMaxEstudiantes());
+                            MisReunionItems.addElement("[" + r.getIdReunion() + "]" + "Materia: " + r.getMateriaDeMonitor() + "| Lugar: " + r.getLugar() + "| Fecha: " + r.getFechaHora() + "| Personas:  " + r.getPersonasInscritas().size() + "/" + r.getMaxEstudiantes());
                         }
 
                         JOptionPane.showMessageDialog(null, "Reunión editada exitosamente");
@@ -263,10 +263,10 @@ public class MainInterfaz extends JFrame {
                     ItemsReunionesDisponibles.clear();
                     MisReunionItems.clear();
                     for(Reunion r: nuevasReunionesDisponibles){
-                        ItemsReunionesDisponibles.addElement("[" + r.getIdReunion() + "]" + "Materia: " + r.getMateriaDeMonitor() + "| Fecha y hora: " + r.getFechaHora() + "| Cantidad de personas:  " + r.getPersonasInscritas().size() + "/" + r.getMaxEstudiantes());
+                        ItemsReunionesDisponibles.addElement("[" + r.getIdReunion() + "]" + "Materia: " + r.getMateriaDeMonitor() + "| Lugar: " + r.getLugar() + "| Fecha: " + r.getFechaHora() + "| Personas:  " + r.getPersonasInscritas().size() + "/" + r.getMaxEstudiantes());
                     }
                     for(Reunion r: nuevasReunionesMonitor){
-                        MisReunionItems.addElement("[" + r.getIdReunion() + "]" + "Materia: " + r.getMateriaDeMonitor() + "| Fecha y hora: " + r.getFechaHora() + "| Cantidad de personas:  " + r.getPersonasInscritas().size() + "/" + r.getMaxEstudiantes());
+                        MisReunionItems.addElement("[" + r.getIdReunion() + "]" + "Materia: " + r.getMateriaDeMonitor() + "| Lugar: " + r.getLugar() + "| Fecha: " + r.getFechaHora() + "| Personas:  " + r.getPersonasInscritas().size() + "/" + r.getMaxEstudiantes());
                     }
 
 

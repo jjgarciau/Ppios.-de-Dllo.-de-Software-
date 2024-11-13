@@ -164,7 +164,12 @@ public class InterfazActualizarInformacion extends JFrame {
             if(!contraseña.trim().isEmpty()){
                 usuarioActual.setContraseña(contraseña);
                 contraseñaMostrar.setText("");
-                txtContraseña.setText("Contraseña: " + usuarioActual.getContraseña());
+                StringBuilder asteriscos = new StringBuilder();
+                for (int i = 0; i < contraseña.length(); i++) {
+                    asteriscos.append("*");
+                }
+
+                txtContraseña.setText("Contraseña: " + asteriscos.toString());
                 cambio = true;
             }
             if(cambio) {
